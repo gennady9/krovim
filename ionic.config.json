@@ -1,0 +1,7 @@
+{
+  "name": "krovim",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
