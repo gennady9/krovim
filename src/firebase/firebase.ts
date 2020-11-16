@@ -6,6 +6,20 @@ import { firebaseApp } from "./fbKey";
 
 const db = firebaseApp.firestore();
 
+export function getCurrentUser() {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(function(user) {
+      if(user) {
+        resolve(user)
+      } else{
+        resolve(null)
+      }
+      unsubscribe();
+    })
+  });
+  
+}
+
 export function getLectures(){
     return new Promise<any>((resolve, reject) => {        
         db.collection("lectures")

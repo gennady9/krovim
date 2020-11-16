@@ -19,11 +19,10 @@ import { logInOutline, personAddOutline } from "ionicons/icons";
 import { registerUser, loginUser } from "../firebase/firebase";
 import { toast } from "../toast";
 
-const Home: React.FC = () => {
-  // const usernameInputRef = useRef<HTMLIonInputElement>(null);
-  // const passwordInputRef = useRef<HTMLIonInputElement>(null);
+const Home: React.FC = (props: any) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userAuth, setUserAuth] = useState(false);
 
   async function register() {
     // checking if name and password field are working
@@ -40,7 +39,8 @@ const Home: React.FC = () => {
     const res = await registerUser(email, password);
     if (res) {
       toast("You have registered successfully");
-      // TODO: go to feed page
+      setUserAuth(true);
+      props.history.push("/feed");
     }
   }
 
@@ -59,7 +59,8 @@ const Home: React.FC = () => {
     const res = await loginUser(email, password);
     if (res) {
       toast("You have logged successfully");
-      // TODO: go to feed page
+      setUserAuth(true);
+      props.history.push("/feed");
     }
   }
 

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Redirect, Route, useHistory } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
@@ -25,7 +25,23 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const App: React.FC = () => (
+import { getCurrentUser } from "../src/firebase/firebase";
+
+const App: React.FC = (props: any) => {
+  // let history = useHistory();
+
+  useEffect(() => {
+    getCurrentUser().then(user => {
+      if(user){
+        // console.log(props);
+        // history.push("/feed");
+      } else{
+        // window.history.replaceState({}, '' ,'/home');
+      }
+    })
+  }, [])
+
+return (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
@@ -35,6 +51,6 @@ const App: React.FC = () => (
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-);
+)};
 
 export default App;
