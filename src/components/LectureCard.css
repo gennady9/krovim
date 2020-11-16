@@ -1,0 +1,100 @@
+.header {
+    background-color: #d4c6bc;
+    height: 5%;
+    border-color: #707070;
+    border-width: 2px;
+    border-bottom-style: solid;
+  
+    display: flex;
+    justify-content: space-between;
+    padding: 0% 10%;
+  }
+  #logo {
+    /* height: 50px; */
+  }
+  
+  ion-content {
+    --ion-background-color: linear-gradient(
+      339deg,
+      rgba(182, 164, 151, 1) 0%,
+      rgba(252, 234, 221, 1) 100%
+    );
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .meeting-card {
+    /* height: 300px; */
+    width: 80%;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    margin: 20px;
+    /* margin: 20px; */
+  }
+  
+  h3 {
+    color: black;
+    text-align: right;
+    padding: 0px 10px;
+    font-family: "Segoe UI";
+  }
+  
+  h1 {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Segoe UI";
+  }
+  p {
+    color: black;
+    text-align: center;
+    font-family: "Segoe UI";
+  }
+  h5 {
+    color: black;
+    text-align: center;
+    font-family: "Segoe UI";
+  }
+  
+  /* grid table */
+  .wrapper {
+    /* flex-grow: 1; */
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    /* grid-template-rows: 68px; */
+    /* background-color: #fff; */
+    color: #444;
+    /* height: 30%; */
+  }
+  
+  .box {
+    /* background-color: #444; */
+    /* color: #fff; */
+    border-style: solid;
+    border-radius: 1px;
+    padding: 0px;
+    /* font-size: 150%; */
+  }
+  
+  h4 {
+    text-align: center;
+    font-family: "Segoe UI";
+  }
+  
+  
+  /* .icon {
+    display: inline-block;
+    vertical-align: middle;
+  } */
+  
+  /* .text {
+  
+    display: inline-block;
+    vertical-align: middle;
+  } */
+  

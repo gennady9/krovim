@@ -9,6 +9,7 @@ import {
   IonLabel,
   IonInput,
   IonIcon,
+  IonImg,
 } from "@ionic/react";
 import React, { useRef } from "react";
 import "./Home.css";
@@ -23,8 +24,9 @@ const Home: React.FC = () => {
     <IonPage>
       <IonContent>
         <div className="container">
-          <img src={krovimLogo} id="logo" alt="logo" />
+          <IonImg src={krovimLogo} id="logo" alt="logo"/>
 
+    
           <IonItem className="ion-margin-top" color="white">
             <IonLabel
               className="ion-text-right"
