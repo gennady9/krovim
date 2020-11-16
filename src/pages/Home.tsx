@@ -16,7 +16,7 @@ import React, { useRef, useState } from "react";
 import "./Home.css";
 import krovimLogo from "../resources/krovim-trans.png";
 import { logInOutline, personAddOutline } from "ionicons/icons";
-import { registerUser, loginUser } from "../firebase";
+import { registerUser, loginUser } from "../firebase/firebase";
 import { toast } from "../toast";
 
 const Home: React.FC = () => {

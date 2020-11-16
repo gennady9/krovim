@@ -3,7 +3,7 @@ import { IonContent, IonPage, IonImg } from "@ionic/react";
 
 import "./Feed.css";
 import krovimLogo from "../resources/krovim-trans.png";
-import { updateFeed, getLectures } from "./../firebase";
+import { updateFeed, getLectures } from "../firebase/firebase";
 import LectureCard from "./../components/LectureCard";
 import {
   timeOutline,

@@ -24,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # hiding firebase credentials
-/src/firebase.ts
+/src/firebase/fbKey.ts
