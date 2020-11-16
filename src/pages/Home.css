@@ -17,3 +17,7 @@ ion-content {
 .buttonRow {
   /* margin: 20% 0%; */
 }
+
+ion-text {
+  padding-top: 70px;
+}

@@ -23,14 +23,12 @@ const LectureCard = (props: any) => {
           <h1>{title}</h1>
           <p>{desc}</p>
           <h5></h5>
-
           <div className="wrapper">
             <div className="box a">
               <h4>
                   {/* TODO: add zoom ref from zoomLink */}
                 Zoom <IonIcon icon={videocamOutline} /> 
               </h4>
-              {/* <IonImg src={videocam} id="logo" alt="logo" /> */}
             </div>
             <div className="box b">
               <h4>
