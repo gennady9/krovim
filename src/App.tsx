@@ -4,6 +4,10 @@ import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import Feed from './pages/Feed';
+import Login from './pages/Login';
+import Register from './pages/Register';
+
+
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -46,6 +50,8 @@ return (
     <IonReactRouter>
       <IonRouterOutlet>
         <Route path="/home" component={Home} exact={true} />
+        <Route path="/login" component={Login} exact={true} />
+        <Route path="/register" component={Register} exact={true} />
         <Route path="/feed" component={Feed} exact={true} />
         <Route exact path="/" render={() => <Redirect to="/home" />} />
       </IonRouterOutlet>
