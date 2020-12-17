@@ -9,9 +9,6 @@
     justify-content: space-between;
     padding: 0% 10%;
   }
-  #logo {
-    /* height: 50px; */
-  }
   
   ion-content {
     --ion-background-color: linear-gradient(
@@ -73,18 +70,21 @@
   }
   
   .box {
-    /* background-color: #444; */
-    /* color: #fff; */
     border-style: solid;
     border-radius: 1px;
     padding: 0px;
-    /* font-size: 150%; */
+    vertical-align: middle;
   }
   
   h4 {
     text-align: center;
     font-family: "Segoe UI";
   }
+  a {
+    color: black !important;
+    cursor: not-allowed;
+    text-decoration: none;
+}
   
   
   /* .icon {

@@ -31,6 +31,17 @@ export function getLectures(){
 	});
 }
 
+export function registerLecture(lectureName : any){
+  return new Promise<any>((resolve, reject) => {        
+      db.collection("lectures")
+      .get(lectureName)
+      .then((querySnapshot) => {
+        const data = querySnapshot.docs.map((doc) => doc.data());
+        resolve(data);
+      })
+});
+}
+
 // export async function readFeed() {
 //   db.collection("lectures")
 //     .get()
@@ -65,7 +76,8 @@ export async function updateFeed() {
 
 export async function loginUser(email: string, password: string){
     try {
-        const res = await firebase.auth().signInWithEmailAndPassword(email, password);
+        // const res = 
+        await firebase.auth().signInWithEmailAndPassword(email, password);
         // console.log(res);
         return true;
     } catch(error){
@@ -76,7 +88,8 @@ export async function loginUser(email: string, password: string){
 
 export async function registerUser(email: string, password: string){
     try {
-        const res = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        // const res = 
+        await firebase.auth().createUserWithEmailAndPassword(email, password);
         // console.log(res);
         return true;
     } catch(error){

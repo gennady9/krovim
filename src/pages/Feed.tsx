@@ -1,42 +1,87 @@
 import React, { useEffect, useState } from "react";
-import { IonContent, IonPage, IonImg } from "@ionic/react";
-
+import {
+  IonContent,
+  IonPage,
+  IonImg,
+  IonHeader,
+  IonToolbar,
+  IonButtons,
+  IonMenuButton,
+  IonAlert,
+} from "@ionic/react";
+import { Plugins } from "@capacitor/core";
 import "./Feed.css";
 import krovimLogo from "../resources/krovim-trans.png";
-import { updateFeed, getLectures } from "../firebase/firebase";
+import { getLectures } from "../firebase/firebase";
 import LectureCard from "./../components/LectureCard";
-import {
-  timeOutline,
-  peopleOutline,
-  videocamOutline,
-  calendarOutline,
-} from "ionicons/icons";
 
-const Feed: React.FC = () => {
+
+const Feed: React.FC = (props: any) => {
   const [lectures, setLectures] = useState([]);
+  const { App } = Plugins;
+  const [showBackAlert, setShowBackAlert] = useState(false);
 
   useEffect(() => {
-    // updateFeed();
-
     getLectures().then((data) => {
-      // console.log(data);
-      console.log(Object.values(data));
       setLectures(Object.values(data));
     });
   }, []);
 
+//   document.addEventListener('keyup', function (event) {
+//     // Alt+Ctrl+<
+//     if (event.altKey && event.ctrlKey && event.keyCode === 188) {
+//         triggerBackButton();
+//     }
+// });
+
+   // listening to ionic back button event
+ document.addEventListener('ionBackButton', (ev: any) => {
+  ev.detail.register(-1, () => {
+    // when you are in your home(last) page
+    if (props.history.location.pathname === '/feed') {
+      // calling alert box
+      setShowBackAlert(true);
+    }
+  });
+});
+
   return (
-    <IonPage>
-      <div className="header">
-        <h1 />
-        <IonImg src={krovimLogo} id="logo" alt="logo" />
-        <h1></h1>
-      </div>
+    <IonPage id="feed">
+      <IonHeader className="feed-header">
+        <IonToolbar>
+          <IonButtons slot="end">
+            <IonMenuButton />
+          </IonButtons>
+          <IonImg src={krovimLogo} id="logo" alt="logo" />
+        </IonToolbar>
+      </IonHeader>
       <IonContent>
         {lectures?.map((lecture, i) => (
           <LectureCard key={i} {...lecture} />
         ))}
       </IonContent>
+
+      <IonAlert
+          isOpen={showBackAlert}
+          header={'אנא אשר'}
+          message={'?לצאת מהאפליקציה'}
+          buttons={[
+            {
+              text: 'חזור',
+              role: 'cancel',
+              cssClass: 'secondary',
+              handler: () => {}
+            },
+            {
+              text: 'צא',
+              handler: () => {
+                App.exitApp();
+              }
+            }
+          ]}
+          onDidDismiss={() => setShowBackAlert(false)}
+          cssClass='my-custom-class'
+        />
     </IonPage>
   );
 };

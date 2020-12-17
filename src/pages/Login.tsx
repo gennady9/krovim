@@ -2,7 +2,6 @@ import {
     IonContent,
     IonButton,
     IonPage,
-    IonGrid,
     IonRow,
     IonCol,
     IonItem,
@@ -31,6 +30,7 @@ import {
         return toast("Username and password are required");
       }
       // validating email
+      // eslint-disable-next-line
       let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   
       if (!re.test(email)) {
@@ -49,7 +49,7 @@ import {
       <IonPage>
         <IonContent>
           <div className="container">
-            <IonImg src={krovimLogo} id="logo" alt="logo" />
+            <IonImg src={krovimLogo} alt="logo" />
             <IonTitle className="home-title">
               <b>התחברות</b>
             </IonTitle>
